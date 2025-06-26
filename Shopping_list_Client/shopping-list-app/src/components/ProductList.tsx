@@ -1,23 +1,25 @@
 import React, { useState } from 'react';
-import shoppingApi from '../api/shoppingApi';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { increment, decrement } from '../features/cart/cartSlice';
-import { Product } from '../features/cart/types';
 import CategoryTabs from './CategoryTabs';
+import { Product } from '../features/cart/types';
+import shoppingApi from '../api/shoppingApi';
 
 export default function ProductList() {
   const products = useAppSelector(state => state.cart.products);
   const dispatch = useAppDispatch();
   const [selectedCategoryId, setSelectedCategoryId] = useState<number | null>(null);
+  const categories = useAppSelector(state => state.cart.categories);
 
   const filtered = selectedCategoryId === null
     ? products
     : products.filter(p => p.CategoryId === selectedCategoryId);
 
-  const getCategoryName = async (product: Product) => {
-    const c = await shoppingApi.getCategoryById(product.CategoryId);
-    return c.Name
-  }
+  // פונקציה למציאת שם הקטגוריה מתוך ה־state
+  const getCategoryName = (product: Product) => {
+    const c = categories.find(cat => cat.id === product.CategoryId);
+    return c ? c.name : '';
+  };
 
   return (
     <div className="card mb-4">

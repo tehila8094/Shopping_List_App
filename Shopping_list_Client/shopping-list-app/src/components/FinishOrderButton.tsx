@@ -9,6 +9,7 @@ export default function FinishOrderButton() {
   const dispatch = useAppDispatch();
 
   const handleFinish = async () => {
+  console.log('Finishing order with products:', products);
     await shoppingApi.saveOrder(products);
     dispatch(clearCart());
     toast.success('ההזמנה נשמרה בהצלחה!');

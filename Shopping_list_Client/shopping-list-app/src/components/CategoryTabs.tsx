@@ -19,23 +19,13 @@ export default function CategoryTabs({ selectedCategoryId, onChange }: CategoryT
           כל המוצרים
         </button>
       </li>
-      {/* {categories.map(cat => (
-        <li className="nav-item" key={cat.Id}>
-          <button
-            className={`nav-link${selectedCategoryId === cat.Id ? ' active' : ''}`}
-            onClick={() => onChange(cat.Id)}
-          >
-            {cat.Name}
-          </button>
-        </li>
-      ))} */}
       {categories.map(cat => (
-        <li key={cat.Id} className="nav-item">
+        <li className="nav-item" key={cat.id}>
           <button
-            className={`nav-link${selectedCategoryId === cat.Id ? ' active' : ''}`}
-            onClick={() => onChange(cat.Id)}
+            className={`nav-link${selectedCategoryId === cat.id ? ' active' : ''}`}
+            onClick={() => onChange(cat.id)}
           >
-            {cat.Name}
+            {cat.name}
           </button>
         </li>
       ))}

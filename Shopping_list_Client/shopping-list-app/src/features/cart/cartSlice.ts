@@ -11,7 +11,7 @@ export const fetchCategories = createAsyncThunk(
   'cart/fetchCategories',
   async () => {
     const res = await shoppingApi.getCategories();
-    return res;
+    return res as Category[];
   }
 );
 
@@ -21,8 +21,7 @@ const cartSlice = createSlice({
   reducers: {
     addProduct: (state, action: PayloadAction<Product>) => {
       const existing = state.products.find(
-        // p => p.Id === action.payload.Id
-         p => p.Name === action.payload.Name && p.CategoryId === action.payload.CategoryId
+        p => p.Name === action.payload.Name && p.CategoryId === action.payload.CategoryId
       );
       if (existing) {
         existing.quantity += action.payload.quantity;

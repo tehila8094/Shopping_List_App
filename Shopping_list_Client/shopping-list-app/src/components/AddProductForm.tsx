@@ -1,22 +1,27 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
-import { addProduct } from '../features/cart/cartSlice';
+import { addProduct, fetchCategories } from '../features/cart/cartSlice';
 
 export default function AddProductForm() {
-  const dispatch = useAppDispatch();
+   const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
+  // useEffect(() => {
+  //   dispatch(fetchCategories());
+  // }, [dispatch]);
+
   const categories = useAppSelector(state => state.cart.categories);
   const [name, setName] = useState('');
   const [categoryId, setCategoryId] = useState<number | ''>('');
 
   const handleAdd = () => {
-    // if (!name || !categoryId) return;
-    if (!name || categoryId === '') return;
-    const category = categories.find(c => c.Id === categoryId);
+    console.log('name', name);
+    if (!name || !categoryId) return;
+    const category = categories.find(c => c.id === categoryId);
     dispatch(addProduct({
       Id: Date.now(),
       Name: name,
       CategoryId : categoryId,
-      // categoryName: category?.name || '',
+      // categoryName: category?.Name || '',
       quantity: 1,
     }));
     setName('');
@@ -44,7 +49,7 @@ export default function AddProductForm() {
           >
             <option value="">בחר קטגוריה</option>
             {categories.map(cat => (
-              <option key={cat.Id} value={cat.Id}>{cat.Name}</option>
+              <option key={cat.id} value={cat.id}>{cat.name}</option>
             ))}
           </select>
         </div>

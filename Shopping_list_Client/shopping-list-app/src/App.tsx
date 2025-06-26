@@ -5,7 +5,7 @@ import CartSummary from './components/CartSummary';
 import AddProductForm from './components/AddProductForm';
 import ProductList from './components/ProductList';
 import FinishOrderButton from './components/FinishOrderButton';
-import { ToastContainer } from 'react-toastify';
+// import { ToastContainer } from 'react-toastify';
 
 function App() {
   const dispatch = useAppDispatch();

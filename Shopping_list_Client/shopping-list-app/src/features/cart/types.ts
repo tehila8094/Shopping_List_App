@@ -3,11 +3,12 @@ export interface Product {
     Name: string;
     quantity: number;
     CategoryId : number;
+    // categoryName: string;
   }
   
   export interface Category {
-    Id: number;
-    Name: string;
+    id: number;
+    name: string;
   }
   
   export interface CartState {
