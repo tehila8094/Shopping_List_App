@@ -57,11 +57,11 @@ Application will run on: `http://localhost:3000`
 
 ### Server Side
 
-# manually
+#### manually
 Navigate to Shopping_list_server directory
 open with vs 2022 the Shopping_list.sln file
 
-# By command
+#### By command
 ``` bash
 cd shopping-list-server
 
