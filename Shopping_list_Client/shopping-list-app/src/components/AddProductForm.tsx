@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
-import { addProduct, fetchCategories } from '../features/cart/cartSlice';
+import { addProduct  } from '../features/cart/cartSlice';
 
 export default function AddProductForm() {
    const dispatch = useAppDispatch();
@@ -16,7 +16,7 @@ export default function AddProductForm() {
   const handleAdd = () => {
     console.log('name', name);
     if (!name || !categoryId) return;
-    const category = categories.find(c => c.id === categoryId);
+    // const category = categories.find(c => c.id === categoryId);
     dispatch(addProduct({
       Id: Date.now(),
       Name: name,

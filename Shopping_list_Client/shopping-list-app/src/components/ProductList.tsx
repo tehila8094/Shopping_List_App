@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { increment, decrement } from '../features/cart/cartSlice';
 import CategoryTabs from './CategoryTabs';
 import { Product } from '../features/cart/types';
-import shoppingApi from '../api/shoppingApi';
+// import shoppingApi from '../api/shoppingApi';
 
 export default function ProductList() {
   const products = useAppSelector(state => state.cart.products);
@@ -15,7 +15,7 @@ export default function ProductList() {
     ? products
     : products.filter(p => p.CategoryId === selectedCategoryId);
 
-  // פונקציה למציאת שם הקטגוריה מתוך ה־state
+
   const getCategoryName = (product: Product) => {
     const c = categories.find(cat => cat.id === product.CategoryId);
     return c ? c.name : '';

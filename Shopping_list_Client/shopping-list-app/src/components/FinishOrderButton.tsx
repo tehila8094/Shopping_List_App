@@ -2,7 +2,7 @@ import React from 'react';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import shoppingApi from '../api/shoppingApi';
 import { clearCart } from '../features/cart/cartSlice';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 
 export default function FinishOrderButton() {
   const products = useAppSelector(state => state.cart.products);
@@ -12,7 +12,7 @@ export default function FinishOrderButton() {
   console.log('Finishing order with products:', products);
     await shoppingApi.saveOrder(products);
     dispatch(clearCart());
-    toast.success('ההזמנה נשמרה בהצלחה!');
+    alert('ההזמנה נשמרה בהצלחה!');
   };
 
   return (

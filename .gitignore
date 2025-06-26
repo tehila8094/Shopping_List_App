@@ -7,6 +7,7 @@ yarn-error.log*
 # Production build
 build/
 dist/
+Shopping_list_server\.vs
 Shopping_list_server\API\bin
 Shopping_list_server\Entities\bin
 Shopping_list_server\Services\bin
